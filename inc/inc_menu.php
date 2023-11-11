@@ -7,9 +7,7 @@
 </head>
 <body>
       <style>
-            body {
-                 
-            }
+           
             ul {
                   display: flex;
                   align-items: center;
@@ -36,9 +34,10 @@
             }
       </style>
       <ul>
-            <li><a href="index.php">home</a></li>
-            <li><a href="process/content.php">hotels</a></li>
-            <li><a href="process/process_booking.php">booking</a></li>
-      </ul>
+    <li><a href="index.php">home</a></li>
+    <li><a href="process/content.php">hotels</a></li>
+    <li><a href="process/process_booking.php">booking</a></li>
+</ul>
+
 </body>
 </html>

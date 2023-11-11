@@ -60,5 +60,12 @@ class booking {
                   return false;
             }     
       }
+
+      public function getBooking() {
+            $sql = "SELECT * FROM booking ORDER BY booking_date DESC LIMIT 1";
+            $stmnt = $this->_db->prepare($sql);
+            $stmnt->execute();
+            return $stmnt->fetchAll(PDO::FETCH_ASSOC); 
+      }
 }
 

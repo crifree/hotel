@@ -1,6 +1,6 @@
 <?php
-require('C:\wamp64\www\php avancé 2\inc\inc_menu.php');
-require('C:\wamp64\www\php avancé 2\class\hotel.php');
+require('C:\wamp64\www\php_avance2\inc\inc_menu.php');
+require('C:\wamp64\www\php_avance2\class\hotel.php');
 
 
 echo "pagina di prenotazione";
@@ -45,12 +45,23 @@ echo "pagina di prenotazione";
             } else {
                   if($booking_start >= $booking_end) {
                   echo "la date de départ doit être au moins un jour après la date d'arrivée";
-                  exit;
+                  exit();
                   } else {
                         $db = new PDO('mysql:host=localhost;dbname=php_avance2', 'root', '');
                         $booking = new booking($db);
                         $result = $booking->insertBooking($booking_start, $booking_end, $client_name, $client_email);
-                        echo "réservation réussie <br>";
+                        if($result) {
+                              $bookingResult = new booking($db);
+                              $lastBooking = $bookingResult->getBooking();
+                              if($lastBooking) {
+                                    echo "réservation réussie <br>";
+                                    echo "last book: <br>";
+                                    echo $lastBooking[0]['booking_start'] . "<br>";
+                                    echo $lastBooking[0]['booking_end'] . "<br>";
+                                    echo $lastBooking[0]['client_name'] . "<br>";
+                                    echo $lastBooking[0]['client_email'] . "<br>";
+                              }
+                        }
                   }
             }
       }

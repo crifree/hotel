@@ -1,6 +1,6 @@
 <?php
-require('C:\wamp64\www\php avancé 2\inc\inc_menu.php');
-require('C:\wamp64\www\php avancé 2\class\hotel.php');
+require('C:\wamp64\www\php_avance2\inc\inc_menu.php');
+require('C:\wamp64\www\php_avance2\class\hotel.php');
 
 echo "<h2>lista hotels</h2>";
 $db = new PDO('mysql:host=localhost;dbname=php_avance2', 'root', '');
