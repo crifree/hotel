@@ -41,18 +41,16 @@ echo "pagina di prenotazione";
             $booking_start = $_POST['booking_start'];
             $booking_end = $_POST['booking_end'];
             if(empty($client_name) OR empty($client_email) OR empty($booking_start) OR empty($booking_end)) {
-                  echo "error";
+                  echo "Tous les champs doivent être remplis";
             } else {
                   if($booking_start >= $booking_end) {
-                  echo "error date";
+                  echo "la date de départ doit être au moins un jour après la date d'arrivée";
                   exit;
                   } else {
                         $db = new PDO('mysql:host=localhost;dbname=php_avance2', 'root', '');
                         $booking = new booking($db);
-                        $client = new client($db);
-                        $client->insertClient($client_name, $client_email);
                         $result = $booking->insertBooking($booking_start, $booking_end, $client_name, $client_email);
-                        echo "dati inseriti con successo <br>";
+                        echo "réservation réussie <br>";
                   }
             }
       }
